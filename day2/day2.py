@@ -65,5 +65,3 @@ with open('input.txt') as input_data:
 
 print(part_one_score)
 print(part_two_score)
-
-print(total_score)
