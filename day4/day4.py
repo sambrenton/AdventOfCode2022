@@ -19,5 +19,4 @@ with open('input.txt') as input_data:
         a, b, x, y = re.findall(r'[0-9][0-9]*', line)
         if len(set(range(int(a), int(b)+1)) & set(range(int(x), int(y)+1))) != 0:
             overlap_count += 1
-
     print(overlap_count)
