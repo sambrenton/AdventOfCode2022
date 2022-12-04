@@ -1,22 +1,13 @@
 import re
-
-# Fetch input data
+part_one_answer = 0
+part_two_answer = 0
 with open('input.txt') as input_data:
-    input_data = [line.strip() for line in input_data.readlines()]
+    for line in input_data.readlines():
+        a, b, c, d = re.findall(r'[0-9][0-9]*', line)
+        if set(range(int(a), int(b)+1)) | set(range(int(c), int(d)+1)) == set(range(int(a), int(b)+1)) or set(range(int(a), int(b)+1)) | set(range(int(c), int(d)+1)) == set(range(int(c), int(d)+1)):
+            part_one_answer += 1
+        if len(set(range(int(a), int(b)+1)) & set(range(int(c), int(d)+1))) != 0:
+            part_two_answer += 1
 
-    # Part One
-    overlap_count = 0
-    for line in input_data:
-        a, b, x, y = re.findall(r'[0-9][0-9]*', line)
-        seta, setb = set(range(int(a), int(b)+1)), set(range(int(x), int(y)+1))
-        if seta | setb == seta or seta | setb == setb:
-            overlap_count += 1
-    print(overlap_count)
-
-    # Part Two
-    overlap_count = 0
-    for line in input_data:
-        a, b, x, y = re.findall(r'[0-9][0-9]*', line)
-        if len(set(range(int(a), int(b)+1)) & set(range(int(x), int(y)+1))) != 0:
-            overlap_count += 1
-    print(overlap_count)
+print(part_one_answer)
+print(part_two_answer)
