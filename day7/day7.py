@@ -1,5 +1,3 @@
-import re
-
 with open('input.txt') as input_data:
     input_data = [line.strip('\n') for line in input_data.readlines()]
     current_dir = [r'/']
@@ -15,11 +13,10 @@ with open('input.txt') as input_data:
                 
         if line[0].isdigit():
             for i in range(1, len(current_dir)+1):
-                try:
+                if current_dir[-i] in dirs:
                     dirs[current_dir[-i]].append(line)
-                except KeyError:
-                    dirs[current_dir[-i]]=[]
-                    dirs[current_dir[-i]].append(line)
+                else:
+                    dirs[current_dir[-i]]=[line]
 
 totals = []
 for dir, files in dirs.items():
