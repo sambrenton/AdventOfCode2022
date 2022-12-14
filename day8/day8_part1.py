@@ -1,13 +1,13 @@
 import numpy as np
 
 with open('input.txt') as input_data:
-    input_data = [list(map(int, line.strip())) for line in input_data]
-    trees =(np.array(input_data))
+    trees =(np.array([list(map(int, line.strip())) for line in input_data]))
     visible_trees = []
 
     for x in range(len(trees)-2):
         for y in range(len(trees[x])-2):
             tree = trees[x+1][y+1]
+            
             if all(tree > trees[x+1][y+2:]): # From the right
                 visible_trees.append([tree, trees[x+1] , y])
 
